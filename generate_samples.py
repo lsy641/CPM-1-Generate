@@ -101,8 +101,8 @@ def initialize_distributed(args):
     init_method = 'tcp://'
     master_ip = os.getenv('MASTER_ADDR', 'localhost')
     master_port = os.getenv('MASTER_PORT', '6000')
-    #init_method += master_ip + ':' + master_port
-    init_method += master_ip + ':' + '12580'
+    init_method += master_ip + ':' + master_port
+    # init_method += master_ip + ':' + '12580'
     torch.distributed.init_process_group(
         backend=args.distributed_backend,
         world_size=args.world_size, rank=args.rank,
